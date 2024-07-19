@@ -35,11 +35,11 @@ time = datetime.now(beijing_timezone).strftime('%Y-%m-%d %H:%M:%S')
 
 loginip = requests.get('https://api.ipify.org?format=json').json()['ip']
 
-pushplus_token = os.getenv('PUSHPLUS_TOKEN')
+pushplus_token = os.getenv('SCT_SENDKEY')
 
 title = 'serv00 服务器登录提醒'
 content = f"用户：{', '.join(user_list)}, 登录了 SSH 服务器<br>登录时间：{time}<br>登录IP：{loginip}"
-url = 'http://www.pushplus.plus/send'
+url = 'https://sctapi.ftqq.com/SCT253289TefsXVraBGWJWjl8lGFSurayM.send'
 data = {
     "token": pushplus_token,
     "title": title,
