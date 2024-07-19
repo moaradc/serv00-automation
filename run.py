@@ -39,9 +39,9 @@ pushplus_token = os.getenv('SCT_SENDKEY')
 
 title = 'serv00 服务器登录提醒'
 content = f"用户：{', '.join(user_list)}, 登录了 SSH 服务器<br>登录时间：{time}<br>登录IP：{loginip}"
-url = 'https://sctapi.ftqq.com/SCT253289TefsXVraBGWJWjl8lGFSurayM.send'
+url = 'https://sctapi.ftqq.com/key.send'
 data = {
-    "token": pushplus_token,
+    "token": SCT_SENDKEY,
     "title": title,
     "content": content
 }
