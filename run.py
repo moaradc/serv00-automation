@@ -43,7 +43,8 @@ url = 'http://www.pushplus.plus/send'
 data = {
     "token": pushplus_token,
     "title": title,
-    "content": content
+    "content": content,
+    "channel": mail
 }
 body = json.dumps(data).encode(encoding='utf-8')
 headers = {'Content-Type': 'application/json'}
