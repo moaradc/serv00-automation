@@ -38,7 +38,72 @@ loginip = requests.get('https://api.ipify.org?format=json').json()['ip']
 pushplus_token = os.getenv('PUSHPLUS_TOKEN')
 
 title = 'serv00 服务器登录提醒'
-content = f"<style> body { margin: 0; height: 100vh; background: linear-gradient(135deg, rgba(255, 182, 193, 0.5), rgba(255, 105, 180, 0.5), rgba(255, 255, 255, 0.5), rgba(135, 206, 250, 0.5), rgba(173, 216, 230, 0.5), rgba(240, 128, 128, 0.5), rgba(221, 160, 221, 0.5)); background-size: 300% 300%; animation: gradient 10s ease infinite; font-family: Arial, sans-serif; display: flex; flex-direction: column; justify-content: space-between; } @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } } .container { text-align: center; margin-top: 50px; } .button { display: block; width: 80%; margin: 10px auto; padding: 15px; color: black; text-align: center; text-decoration: none; border-radius: 10px; background: rgba(255, 255, 255, 0.3); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px); transition: background 0.3s, box-shadow 0.3s; } .button:hover { background: rgba(255, 255, 255, 0.5); box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); } footer { text-align: center; padding: 20px; background-color: rgba(255, 255, 255, 0.5); border-top: 1px solid #ddd; backdrop-filter: blur(10px); } footer img { vertical-align: middle; } footer a { text-decoration: none; color: #007BFF; } footer a:hover { text-decoration: underline; } </style>"
+content = f"""
+<style>
+body {{
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.5), rgba(255, 105, 180, 0.5), rgba(255, 255, 255, 0.5), rgba(135, 206, 250, 0.5), rgba(173, 216, 230, 0.5), rgba(240, 128, 128, 0.5), rgba(221, 160, 221, 0.5));
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}}
+@keyframes gradient {{
+    0% {{ background-position: 0% 50%; }}
+    50% {{ background-position: 100% 50%; }}
+    100% {{ background-position: 0% 50%; }}
+}}
+.container {{
+    text-align: center;
+    margin-top: 50px;
+}}
+.button {{
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s, box-shadow 0.3s;
+}}
+.button:hover {{
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}}
+footer {{
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid #ddd;
+    backdrop-filter: blur(10px);
+}}
+footer img {{
+    vertical-align: middle;
+}}
+footer a {{
+    text-decoration: none;
+    color: #007BFF;
+}}
+footer a:hover {{
+    text-decoration: underline;
+}}
+</style>
+<div class="container">
+    <h1>服务器登录提醒</h1>
+    <p>用户：{', '.join(user_list)}，登录了 SSH 服务器</p>
+    <p>登录时间：{time}</p>
+    <p>登录IP：{loginip}</p>
+</div>
+"""
+
 url = 'http://www.pushplus.plus/send'
 data = {
     "token": pushplus_token,
