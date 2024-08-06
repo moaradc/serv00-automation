@@ -109,7 +109,7 @@ data = {
     "token": pushplus_token,
     "title": title,
     "content": content,
-    "channel":"mail"
+    "channel":"mail",
     "template":"html"
     
 }
