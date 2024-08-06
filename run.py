@@ -37,7 +37,7 @@ loginip = requests.get('https://api.ipify.org?format=json').json()['ip']
 
 pushplus_token = os.getenv('PUSHPLUS_TOKEN')
 
-title = 'serv00 服务器登录提醒'
+title = 'serv00 服务器定时登录提醒'
 content = f"""
 <style>
 body {{
@@ -97,7 +97,7 @@ footer a:hover {{
 }}
 </style>
 <div class="container">
-    <h1>SSL服务器登录提醒</h1>
+    <h1>每月6号19点运行</h1>
     <p>用户：{', '.join(user_list)}，登录了 SSH 服务器</p>
     <p>登录时间：{time}</p>
     <p>登录IP：{loginip}</p>
