@@ -97,10 +97,11 @@ footer a:hover {{
 }}
 </style>
 <div class="container">
-    <h1>服务器登录提醒</h1>
+    <h1>SSL服务器登录提醒</h1>
     <p>用户：{', '.join(user_list)}，登录了 SSH 服务器</p>
     <p>登录时间：{time}</p>
     <p>登录IP：{loginip}</p>
+    <a class="button" href="https://panel3.serv00.com/" target="_blank">DevilWEB</a>
 </div>
 """
 
